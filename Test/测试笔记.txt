@@ -1,0 +1,110 @@
+一、pytest生成测试报告
+"""
+pytest生成测试报告
+allure需要手动安装并添加环境变量
+"""
+import os
+import pytest
+if __name__ == '__main__':
+    pytest.main(["-vs",
+                "--capture=sys",  # 捕获输出
+                # "test_framework.py",# 执行哪个文件 当前文件名
+                "test/",  # 执行test/下所有文件
+                "--clean-alluredir",  # 执行前清除掉上次执行的数据#
+                "--alluredir=allure-result"  # 本次执行结果数据文件夹
+    ])
+    print("用例执行完毕")
+    # os就是系统操作命令   在windows下等同于命令台
+    os.system("allure generate allure-result -o ./report_allure --clean")
+二、
+pytest配置文件 conftest.py
+"""
+文件的命名是固定conftest.py。pytest一个配置文件,这个文件一定是必定执行
+"""
+
+三、
+"""
+变量渲染:Template用法
+字符串里被 括起来的字符，与 字典中的 key一致! 直接用value 替换掉 这个字符
+"""
+from string import  Template
+dc = {"teacher":"小明"}
+st ="欢迎大家来到，${teacher}的课堂"
+print(st)
+print(Template(st).substitute(dc))
+四、
+# 对excel的提取参数做判断，如果有值，应的参数提取出来。如果没值，就不提取
+import  jsonpath
+case_info={}
+rs = {}
+dic = {}
+if case_info["提取参数"]:
+    # 有值，所以开始提取--我怎么知道要提取的值在哪一层?\
+    # jsonpath 提取
+    lk = jsonpath.jsonpath(rs.json(),"$.."+case_info["提取参数"])
+    dic[case_info["提取参数"]]= lk[0]
+五、
+    通过国内镜像python下载依赖
+    """
+    python -m pip install package-name -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+    python -m pip install playwright -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+    """
+# PyCharm国内镜像配置指南
+    1. 打开PyCharm设置界面
+       - Windows/Linux: File → Settings
+       - macOS: PyCharm → Preferences
+    2. 导航到Project Interpreter设置
+       - 展开Project部分，选择Python Interpreter
+    3. 进入包管理设置
+       - 点击右侧齿轮图标 → Show All
+       - 选择对应解释器 → Show All
+    4. 添加国内镜像源
+       - 点击+号 → Manage Repositories
+       - 点击+号 → 输入镜像源地址
+       - 常用地址：
+         - 清华源: https://pypi.tuna.tsinghua.edu.cn/simple
+         - 阿里云: https://mirrors.aliyun.com/pypi/simple/
+         - 豆瓣源: https://pypi.douban.com/simple
+    5. 保存配置并验证
+       - 关闭设置窗口
+       - 返回项目中安装第三方库
+六、
+    postman 接口自动化测试
+    newman 使用postman接口json文档生成的文字测试报告
+    newman 环境搭建
+    安装-npm install -g newman
+    2.安装 newman
+    检查newman -V
+    1.postman 测试脚本导出为 json文件
+    newman 基本使用
+    2.newman 运行脚本
+    newman run你的脚本文件名称
+
+    html 报告的生成
+    -- 安装 newman 导出 html 报告的增强插件
+    npm install -g newman-reporter-html
+    npm install -g newman-reporter-htmlextra
+
+    指定生成HTML测试报告
+    newman run postman collection.json -r htmlextra --reporter-htmlextra-export report.html
+
+    测试报告天花板 Allure
+
+    安装newman插件
+    npm install -g newman-reporter-allure
+
+
+
+
+ssh-keygen -t rsa -C "aa1227446322@gmail.com"
+
+
+
+
+
+
+
+
+
+
+
