@@ -93,10 +93,7 @@ if case_info["提取参数"]:
     安装newman插件
     npm install -g newman-reporter-allure
 
-
-
-
-ssh-keygen -t rsa -C "aa1227446322@gmail.com"
+你好啊
 
 
 
