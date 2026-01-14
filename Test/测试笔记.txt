@@ -93,14 +93,6 @@ if case_info["提取参数"]:
     安装newman插件
     npm install -g newman-reporter-allure
 
-你好啊
-
-
-
-
-
-
-
 
 
 
