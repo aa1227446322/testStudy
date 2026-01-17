@@ -19,7 +19,7 @@ if __name__ == '__main__':
 二、
 pytest配置文件 conftest.py
 """
-文件的命名是固定conftest.py。pytest一个配置文件,这个文件一定是必定执行
+文件的命名是固定conftest.py。pytest一个配置文件,这个文件会自动执行
 """
 
 三、
@@ -92,8 +92,12 @@ if case_info["提取参数"]:
 
     安装newman插件
     npm install -g newman-reporter-allure
-
-
+七、
+    说明该文档使用utf-8的格式
+    #-*- coding:utf-8-*-
+八、
+    国内仓库 git
+    gitee
 
 
 
